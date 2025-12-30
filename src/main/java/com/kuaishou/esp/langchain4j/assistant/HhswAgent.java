@@ -13,10 +13,12 @@ import dev.langchain4j.service.spring.AiServiceWiringMode;
 @AiService(
         wiringMode = AiServiceWiringMode.EXPLICIT,
         chatModel = "qwenChatModel",
-        chatMemoryProvider = "chatMemoryEspXiaoWeiProvider"
+        chatMemoryProvider = "chatMemoryHhswProvider"
 )
-public interface EspXiaoWeiAgent {
+public interface HhswAgent {
 
-    @SystemMessage("hhsw-prompt-template.txt")
+    @SystemMessage(fromResource = "hhsw-prompt-template.txt")
     String chat(@MemoryId Long memoryId, @UserMessage String userMessage);
+
+    String chat(@UserMessage String userMessage);
 }

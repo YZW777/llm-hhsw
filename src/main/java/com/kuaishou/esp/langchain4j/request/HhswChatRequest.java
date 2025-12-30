@@ -7,7 +7,7 @@ import lombok.Data;
  * Created on 2025-12-22
  */
 @Data
-public class EspXiaoWeiChatRequest {
+public class HhswChatRequest {
 
     // 对话id
     private Long memoryId;

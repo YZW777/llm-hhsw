@@ -25,38 +25,6 @@ import dev.langchain4j.model.output.Response;
 @SpringBootTest(classes = BeanConfig.class)
 public class LLMTest {
 
-    @Test
-    public void testGPTDemo() {
-        // 测试版
-        OpenAiChatModel model = OpenAiChatModel.builder()
-                .apiKey("demo")
-                .modelName("gpt-4o-mini")
-                .baseUrl("http://langchain4j.dev/demo/openai/v1")
-                .maxRetries(3)
-                .build();
-        String answer = model.chat("你好哦");
-        System.out.println(answer);
-    }
-
-    @Autowired
-    private OpenAiChatModel openAiChatModel;
-
-    @Test
-    public void testSpringBoot() {
-        // deepseek正式版
-        String chat = openAiChatModel.chat("你是什么大模型");
-        System.out.println(chat);
-    }
-
-    @Autowired
-    private OllamaChatModel ollamaChatModel;
-
-    @Test
-    public void testOllama() {
-        String chat = ollamaChatModel.chat("介绍下你自己");
-        System.out.println(chat);
-    }
-
 
     @Autowired
     private QwenChatModel qwenChatModel;

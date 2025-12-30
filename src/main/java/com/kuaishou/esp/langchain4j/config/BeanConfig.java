@@ -1,18 +1,17 @@
 package com.kuaishou.esp.langchain4j.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.kuaishou.esp.langchain4j.assistant.Assistant;
 import com.kuaishou.esp.langchain4j.assistant.SeparateChatAssistant;
+import com.kuaishou.esp.langchain4j.store.MongoChatMemoryStore;
 
 import dev.langchain4j.community.model.dashscope.QwenChatModel;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.ChatMemoryProvider;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
-import dev.langchain4j.model.ollama.OllamaChatModel;
-import dev.langchain4j.model.openai.OpenAiChatModel;
 import dev.langchain4j.service.AiServices;
 
 /**
@@ -74,35 +73,32 @@ public class BeanConfig {
                 .build();
     }
 
-
-
-/*
     @Bean
     public ChatMemory chatMemory() {
-        return MessageWindowChatMemory.withMaxMessages(20);
+        return MessageWindowChatMemory.withMaxMessages(10);
     }
 
-    @Bean
-    public ChatMemoryProvider chatMemoryProvider() {
-        return memoryId -> MessageWindowChatMemory.builder().id(memoryId).maxMessages(10).build();
-    }
+    @Autowired
+    private MongoChatMemoryStore mongoChatMemoryStore;
 
     @Bean
-    public Assistant assistant() {
-        return AiServices.builder(Assistant.class)
-                .chatLanguageModel(qwenChatModel())
-                .chatMemory(chatMemory())
-                .build();
+    public ChatMemoryProvider chatMemoryHhswProvider() {
+        return memoryId ->
+                MessageWindowChatMemory.builder()
+                        .id(memoryId)
+                        .maxMessages(10)
+                        .chatMemoryStore(mongoChatMemoryStore)
+                        .build();
     }
 
     @Bean
     public SeparateChatAssistant separateChatAssistant() {
         return AiServices.builder(SeparateChatAssistant.class)
-                .chatLanguageModel(qwenChatModel())
-                .chatMemory(chatMemory())
-                .chatMemoryProvider(chatMemoryProvider())
+                .chatMemoryProvider(chatMemoryHhswProvider())
+                .chatModel(qwenChatModel())
                 .build();
     }
-*/
+
+
 
 }

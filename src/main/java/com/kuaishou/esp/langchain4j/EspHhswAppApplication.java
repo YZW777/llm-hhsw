@@ -8,8 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Created on 2025-12-14
  */
 @SpringBootApplication(scanBasePackages = {"com.kuaishou.esp.langchain4j"})
-public class EspAppApplication {
+public class EspHhswAppApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(EspAppApplication.class, args);
+        SpringApplication.run(EspHhswAppApplication.class, args);
     }
 }
