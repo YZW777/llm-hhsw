@@ -29,8 +29,10 @@ public class PromptTest {
 
     @Test
     public void testUserMessage() {
-        String chat = memoryChatAssistant.chat("你好呀，我觉得你真的很聪明，我喜欢你！");
+        String chat = memoryChatAssistant.chat("你好呀，我是虎虎生威");
         System.out.println(chat);
+        String chat2 = memoryChatAssistant.chat("我是谁啊");
+        System.out.println(chat2);
     }
 
     @Test

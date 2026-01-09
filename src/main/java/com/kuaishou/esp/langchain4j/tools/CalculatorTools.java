@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import dev.langchain4j.agent.tool.P;
 import dev.langchain4j.agent.tool.Tool;
 import dev.langchain4j.agent.tool.ToolMemoryId;
-import dev.langchain4j.service.MemoryId;
 
 /**
  * @author yanziwei <yanziwei05@kuaishou.com>

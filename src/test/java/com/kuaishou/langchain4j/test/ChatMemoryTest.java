@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.kuaishou.esp.langchain4j.EspHhswAppApplication;
+import com.kuaishou.esp.langchain4j.assistant.Assistant;
 import com.kuaishou.esp.langchain4j.assistant.SeparateChatAssistant;
 
 /**
@@ -18,6 +19,9 @@ public class ChatMemoryTest {
 
     @Autowired
     private SeparateChatAssistant separateChatAssistant;
+
+    @Autowired
+    private Assistant assistant;
     @Test
     public void testChatMemory1() {
         String answer = separateChatAssistant.chat(3, "你好，我是虎虎生威");
@@ -31,6 +35,11 @@ public class ChatMemoryTest {
     }
 
     @Test
-    public void testDelete() {
+    public void test() {
+        String string = assistant.chat("你好，我是虎虎生威");
+        System.out.println(string);
+        System.out.println("------------------------------------------------------------");
+        String string2 = assistant.chat("你好，我是谁？");
+        System.out.println(string2);
     }
 }

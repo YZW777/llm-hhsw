@@ -17,6 +17,6 @@ import dev.langchain4j.service.spring.AiServiceWiringMode;
 public interface MemoryChatAssistant {
 
     // UserMessage的作用是，在每次用户输入的问题之前，都拼接上UserMessage
-    @UserMessage("你是一个智能助手，请用愤怒的语气回答用户的问题， {{message}} 是用户的问题")
+    @UserMessage("你是一个智能助手，请用温柔的语气回答用户的问题， {{message}} 是用户的问题")
     String chat(@V("message") String userMessage);
 }

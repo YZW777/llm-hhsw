@@ -13,7 +13,8 @@ import dev.langchain4j.service.spring.AiServiceWiringMode;
 @AiService(
         wiringMode = AiServiceWiringMode.EXPLICIT,
         chatModel = "qwenChatModel",
-        chatMemoryProvider = "chatMemoryHhswProvider"
+        chatMemoryProvider = "chatMemoryHhswProvider",
+        tools = "campaignTools"
 )
 public interface HhswAgent {
 
